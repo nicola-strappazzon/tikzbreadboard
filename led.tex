@@ -1,0 +1,9 @@
+\newcommand{\led}[3]{
+    \def\x{#1}
+    \def\y{#2}
+    \def\color{#3}
+
+    \draw[fill=\color!60, draw=black, line width=0.1mm] (\x+1.3,\y-0.55) arc[start angle=325, end angle=35, radius=1];
+    \draw[fill=\color!60, draw=black, line width=0.1mm] (\x+0.5,\y) circle (0.7);
+    \draw[draw=black, line width=0.1mm] (\x+1.3,\y-0.55) -- (\x+1.3,\y+0.6);
+}

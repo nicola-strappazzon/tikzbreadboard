@@ -1,0 +1,16 @@
+\newcommand{\ic}[3]{
+    \def\x{#1}
+    \def\pins{#2}
+    \def\name{#3}
+
+	\draw[fill=black!60] (0.75 + \x - 1, 5.3) rectangle ({0.25 + \x+(\pins/2) - 1},7.7) node[pos=.5] {\name};
+	\draw(0.75 + \x - 1, 6.8) arc[start angle=90, end angle=0, radius=0.3];
+	\draw(0.75 + \x - 1, 6.2) arc[start angle=270, end angle=360, radius=0.3];
+	
+	\pgfmathsetmacro{\y}{(\pins/2) -1 }
+	
+    \foreach \i in {0,...,\y} {
+        \draw[fill=gray!50] (0.75 + \x + \i - 1, 7.70) rectangle ++(0.50, 0.25);
+        \draw[fill=gray!50] (0.75 + \x + \i - 1, 5.05) rectangle ++(0.50, 0.25);
+    }
+}

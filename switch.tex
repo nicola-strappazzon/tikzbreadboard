@@ -1,0 +1,11 @@
+\newcommand{\switch}[2]{
+    \def\x{#1}
+    \def\y{#2}
+
+    \draw[fill=gray!60] (\x - 0.25, \y - 1.25) rectangle (\x + 2.25,\y + 1.25);
+    \draw[fill=black, draw=black, line width=0] (\x + 0.1, \y - 0.9) circle (0.2);
+    \draw[fill=black, draw=black, line width=0] (\x + 1.9, \y - 0.9) circle (0.2);
+    \draw[fill=black, draw=black, line width=0] (\x + 1.9, \y + 0.9) circle (0.2);
+    \draw[fill=black, draw=black, line width=0] (\x + 0.1, \y + 0.9) circle (0.2);
+    \draw[fill=black, draw=black, line width=0] (\x + 1, \y) circle (0.8);
+}
