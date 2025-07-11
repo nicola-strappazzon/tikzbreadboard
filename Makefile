@@ -18,7 +18,7 @@ run: ## Run hugo server in local.
 
 build: ## Create pdf and svg files from LaTex file using package circuitikz.
 	@if [ -z "$(FILE)" ]; then \
-		echo "Usage: make svg FILE=formula01"; \
+		echo "Usage: make build FILE=example01"; \
 		exit 1; \
 	fi
 	@pdflatex $(FILE).tex
