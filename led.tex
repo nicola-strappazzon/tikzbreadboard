@@ -1,9 +1,25 @@
-\newcommand{\led}[3]{
-    \def\x{#1}
-    \def\y{#2}
-    \def\color{#3}
+\newcommand{\led}[5]{
+    \def\color{#5}
 
-    \draw[fill=\color!60, draw=black, line width=0.1mm] (\x+1.3,\y-0.55) arc[start angle=325, end angle=35, radius=1];
-    \draw[fill=\color!60, draw=black, line width=0.1mm] (\x+0.5,\y) circle (0.7);
-    \draw[draw=black, line width=0.1mm] (\x+1.3,\y-0.55) -- (\x+1.3,\y+0.6);
+    \coordinate (P1) at (#1,#2);
+    \coordinate (P2) at (#3,#4);
+
+    \pgfmathsetmacro{\rx}{#3 - #1}
+    \pgfmathsetmacro{\ry}{#4 - #2}
+    \pgfmathsetmacro{\r}{atan2(\ry,\rx)}
+
+    \draw[line width=1mm, color=gray, line cap=round]
+        let
+            \p1 = ($(P2)-(P1)$),
+            \n1 = {atan2(\y1,\x1)},
+            \n2 = {veclen(\x1,\y1)},
+        in
+            [rotate=\n1]
+            ($(P1)!0!(P2)$) -- ++(\n2,0);
+
+    \begin{scope}[shift={($(P1)!0.5!(P2)$)}, rotate=\r]
+        \draw[fill=\color!60, draw=black, line width=0.1mm] (0.80,-0.55) arc[start angle=325, end angle=35, radius=1];
+        \draw[draw=black, line width=0.1mm] (0.8,-0.55) -- (0.8,0.6);
+        \draw[fill=\color!60, draw=black, line width=0.1mm] (0,0) circle (0.7);
+    \end{scope}
 }

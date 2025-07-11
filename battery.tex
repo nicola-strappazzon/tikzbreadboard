@@ -1,37 +1,37 @@
-\newcommand{\batteryholder}{
+\newcommand{\batteryholder}[2]{
+  \def\x{#1}
+  \def\y{#2}
   \begin{scope}
-    \draw[fill=black, draw=black, rounded corners=4] (-12.00,-04.00) rectangle (-2, 16);
+    \draw[fill=black, draw=black, rounded corners=4] (\x,\y) rectangle (\x + 11.50, \y + 21);
+
+%   \draw[line width=1pt, fill=blue!20]
+%    (0,0) -- (0,3) .. controls ++(0,0) and (0.3,2.2) .. (1.2,2.4) -- (1.2,1.0) .. controls (1.2,1.0) and (1.3,1.0) .. (0.0,0.0) --
+%    cycle;
   \end{scope}
 }
 
-\newcommand{\batterycell}{
-  \begin{scope}
-    \draw[fill=black!80, draw=black, line width=0, rounded corners=2] (-6.00,-3.00) rectangle (-2.00,10.00);
-    \draw[fill=brown!60!orange] (-6.00,10.00) rectangle (-2.00,14.00);
-    \draw[fill=gray!50] (-5.25,14) rectangle (-3.75,14.50);
-    \draw[line width=2pt] (-4.45,11.50) -- (-4.45,12.50);
-    \draw[line width=2pt] (-4.00,12.00) -- (-5.00,12.00);
+\newcommand{\batterycell}[3]{
+  \def\x{#1}
+  \def\y{#2}
+  \def\a{#3}
+
+  \begin{scope}[shift={(\x,\y)}, rotate=\a]
+    \draw[fill=black!80, draw=black, line width=0, rounded corners=2] (0, 0) rectangle (5, 14);
+    \draw[fill=brown!60!orange] (0, 14.00) rectangle (5.00, 19.00);
+    \draw[fill=gray!50] (1.50, 19.00) rectangle (3.50, 19.50);
+    \draw[line width=2pt] (2.00, 16.50) -- (3.00, 16.50);
+    \draw[line width=2pt] (2.50, 16.00) -- (2.50, 17.00);
   \end{scope}
+}
+
+\newcommand{\batterywire}{
+  \draw[line width=2mm, color=red, line cap=round, rounded corners=0.6cm] (-8.0,17) -- ++(0,3) -- ++(11,0) -- ++(0, -5);
+  \draw[line width=2mm, color=black, line cap=round, rounded corners=0.3cm] (-7.5,16.5) -- ++(0,3) -- ++(9.5,0) -- ++(0, -3.5);
 }
 
 \newcommand{\battery}{
-  % \batteryholder
-  \batterycell
-
-  %\draw[fill=black, draw=black, rounded corners=4] (-12.00,-04.00) rectangle (-2, 16);
-  
-% Dimensiones
-% \def\w{1.2}   % ancho
-% \def\h{4}     % alto total
-% \def\toph{0.8} % altura del tope cobre
-
-
-
-% Texto vertical
-% \node[white, font=\sffamily\bfseries, rotate=90] at (0.6,2.2) {DURACELL};
-
-
-%  \draw[line width=1pt, fill=blue!20]
-%    (0,0) -- (0,3) .. controls ++(0,0) and (0.3,2.2) .. (1.2,2.4) -- (1.2,1.0) .. controls (1.2,1.0) and (1.3,1.0) .. (0.0,0.0) --
-%    cycle;
+  \batterywire{}
+  \batteryholder{-13.50}{-4}
+  \batterycell{-13.00}{-3}{000}
+  \batterycell{-2.50}{16}{180}
 }
