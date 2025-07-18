@@ -23,6 +23,7 @@ build: ## Create pdf and svg files from LaTex file using package circuitikz.
 	fi
 	@pdflatex $(FILE).tex
 	@pdf2svg $(FILE).pdf $(FILE).svg
+	@magick convert -density 100 $(FILE).pdf -quality 100 $(FILE).png
 
 clean: ## Remove build files.
 	rm -f *.aux *.log *.dvi *.synctex.gz

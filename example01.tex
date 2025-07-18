@@ -1,5 +1,6 @@
 \documentclass[margin=2mm]{standalone}
 \usepackage{tikz}
+\pagecolor{white}
 \input{lib/breadboard.tex}
 \input{lib/resistor.tex}
 \input{lib/led.tex}
@@ -9,7 +10,7 @@
 \begin{document}
 \begin{tikzpicture}[x=5mm,y=5mm]
 \breadboard{}
-\battery{0}{0}
+\battery{}
 \wire{12}{15}{12}{12}{purple}
 \switch{12}{9}
 \resistor{14}{11}{17}{11}{brown}{black}{red}
