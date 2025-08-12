@@ -8,6 +8,10 @@ Example 02
 
 ![](https://raw.githubusercontent.com/nicola-strappazzon/tikzbreadboard/refs/heads/main/example02.svg)
 
+Example 03
+
+![](https://raw.githubusercontent.com/nicola-strappazzon/tikzbreadboard/refs/heads/main/example03.svg)
+
 Build
 
 ```bash
