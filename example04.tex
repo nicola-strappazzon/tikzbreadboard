@@ -4,21 +4,20 @@
 \input{lib/breadboard.tex}
 \input{lib/battery.tex}
 \input{lib/transistor.tex}
-% \input{lib/resistor.tex}
-% \input{lib/led.tex}
-% \input{lib/switch.tex}
-% \input{lib/wire.tex}
-% \input{lib/electrolyticcapacitor.tex}
+\input{lib/resistor.tex}
+\input{lib/led.tex}
+\input{lib/switch.tex}
+\input{lib/wire.tex}
 \begin{document}
 \begin{tikzpicture}[x=5mm,y=5mm]
 \breadboard{}
 \battery{}
 % \wire{12}{15}{12}{12}{purple}
 % \wire{12}{10}{14}{10}{purple}
-% \switch{14}{8}
-% \resistor{16}{10}{19}{10}{brown}{black}{red}
-% \led{19}{8}{20}{8}{red}
-% \wire{20}{12}{20}{16}{black}
+\switch{6}{10}
+\wire{6}{12}{6}{16}{black}
+\resistor{16}{10}{19}{10}{brown}{black}{red}
+\led{19}{8}{20}{8}{red}
 \transistor{14}{3}{16}{3}
 \end{tikzpicture}
 \end{document}
