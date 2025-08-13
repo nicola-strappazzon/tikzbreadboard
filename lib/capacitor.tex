@@ -1,0 +1,10 @@
+\newcommand{\capacitor}[2]{
+    \def\x{#1}
+    \def\y{#2}
+
+    \draw[fill=blue!70!black, draw=black, line width=0.1mm] (\x+0.5,\y) circle (1);
+    \draw[fill=white, draw=black, line width=0] (\x+0.5,\y) circle (0.6);
+    \draw (\x+0.5,\y-0.4) -- (\x+0.5,\y+0.4);
+    \draw (\x+0.1,\y) -- (\x+0.9,\y);
+    \draw[draw=none, fill=white] (\x+1.13, \y-0.1) rectangle ++(0.32, 0.2);
+}
