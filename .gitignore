@@ -3,3 +3,5 @@
 *.dvi
 *.log
 *.synctex.gz
+*.pdf
+*.png
