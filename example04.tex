@@ -12,12 +12,23 @@
 \begin{tikzpicture}[x=5mm,y=5mm]
 \breadboard{}
 \battery{}
-% \wire{12}{15}{12}{12}{purple}
-% \wire{12}{10}{14}{10}{purple}
-\switch{6}{10}
-\wire{6}{12}{6}{16}{black}
-\resistor{16}{10}{19}{10}{brown}{black}{red}
-\led{19}{8}{20}{8}{red}
-\transistor{16}{3}{14}{3}
+
+\resistor{15}{5}{15}{8}{brown}{black}{red}
+\transistor{16}{9}{14}{9}
+\led{14}{11}{16}{11}{green}
+\wire{16}{12}{16}{16}{black}
+\resistor{14}{12}{14}{15}{brown}{black}{red}
+\wire{14}{5}{14}{8}{blue}
+
+\resistor{21}{5}{21}{8}{brown}{black}{red}
+\transistor{22}{9}{20}{9}
+\led{20}{11}{22}{11}{red}
+\wire{22}{12}{22}{16}{black}
+\resistor{20}{12}{20}{15}{brown}{black}{red}
+\wire{20}{5}{20}{8}{blue}
+
+\resistor{14}{4}{21}{4}{brown}{black}{red}
+\resistor{15}{3}{20}{3}{brown}{black}{red}
+
 \end{tikzpicture}
 \end{document}

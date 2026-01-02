@@ -4,11 +4,26 @@
 \newcommand{\resistor}[7]{
     \coordinate (P1) at (#1,#2);
     \coordinate (P2) at (#3,#4);
+
+    \pgfmathsetmacro{\rx}{#3 - #1}
+    \pgfmathsetmacro{\ry}{#4 - #2}
+    \pgfmathsetmacro{\r}{atan2(\ry,\rx)}
+
     \draw[color=gray, line width=3] (#1, #2) -- (#3, #4);
+
+
     \draw[color=black, line width=0.4,fill=yellow!30] let \p1=($(P1)-(P2)$),\n1={atan2(\y1,\x1)} in [rotate=\n1]
     ($(P1)!0.5!(P2) + (-0.9,0.4)$) -- ++(0.4,0.0) -- ++(0.0,-0.1) -- ++(1.0,0.0) -- ++(0.0,0.1) -- ++(0.4,0) -- ++(0.0,-0.8) -- ++(-0.4,0) -- ++(0.0, 0.1)-- ++(-1.0,0.0) -- ++(0.0,-0.1) -- ++(-0.4,0.0) -- cycle;
-    \draw[color=#5, fill=#5] let \p1=($(P1)-(P2)$),\n1={atan2(\y1,\x1)} in [rotate=\n1] ($(P1)!0.2!(P2) + (-0.1,-0.4)$) rectangle ($(P1)!0.2!(P2) + (-0.3,0.4)$);
-    \draw[color=#6, fill=#6] let \p1=($(P1)-(P2)$),\n1={atan2(\y1,\x1)} in [rotate=\n1] ($(P1)!0.2!(P2) + (-0.6,-0.3)$) rectangle ($(P1)!0.2!(P2) + (-0.8,0.3)$);
-    \draw[color=#7, fill=#7] let \p1=($(P1)-(P2)$),\n1={atan2(\y1,\x1)} in [rotate=\n1] ($(P1)!0.2!(P2) + (-1.0,-0.3)$) rectangle ($(P1)!0.2!(P2) + (-1.2,0.3)$);
-    \draw[color=gold, fill=gold] let \p1=($(P1)-(P2)$),\n1={atan2(\y1,\x1)} in [rotate=\n1] ($(P1)!0.2!(P2) + (-1.5,-0.4)$) rectangle ($(P1)!0.2!(P2) + (-1.7,0.4)$);
+
+    \begin{scope}[shift={($(P1)!0.5!(P2)$)}, rotate=\r]
+        \draw[color=gold, fill=gold] (0.65,-0.4) rectangle (0.80,0.4);
+        \draw[color=#7, fill=#7] (0.3,-0.3) rectangle (0.5,0.3);
+        \draw[color=#6, fill=#6] (-0.1,-0.3) rectangle (0.1,0.3);
+        \draw[color=#5, fill=#5] (-0.5,-0.3) rectangle (-0.3,0.3);
+    \end{scope}
+
+    % \draw[color=#5, fill=#5] let \p1=($(P1)-(P2)$),\n1={atan2(\y1,\x1)} in [rotate=\n1] ($(P1)!0.2!(P2) + (-0.1,-0.4)$) rectangle ($(P1)!0.2!(P2) + (-0.3,0.4)$);
+    % \draw[color=#6, fill=#6] let \p1=($(P1)-(P2)$),\n1={atan2(\y1,\x1)} in [rotate=\n1] ($(P1)!0.2!(P2) + (-0.6,-0.3)$) rectangle ($(P1)!0.2!(P2) + (-0.8,0.3)$);
+    % \draw[color=#7, fill=#7] let \p1=($(P1)-(P2)$),\n1={atan2(\y1,\x1)} in [rotate=\n1] ($(P1)!0.2!(P2) + (-1.0,-0.3)$) rectangle ($(P1)!0.2!(P2) + (-1.2,0.3)$);
+    % \draw[color=gold, fill=gold] let \p1=($(P1)-(P2)$),\n1={atan2(\y1,\x1)} in [rotate=\n1] ($(P1)!0.2!(P2) + (-1.5,-0.4)$) rectangle ($(P1)!0.2!(P2) + (-1.7,0.4)$);
 }
