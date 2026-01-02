@@ -1,0 +1,32 @@
+\newcommand{\ldr}[4]{
+    \coordinate (P1) at (#1,#2);
+    \coordinate (P2) at (#3,#4);
+
+    \pgfmathsetmacro{\rx}{#3 - #1}
+    \pgfmathsetmacro{\ry}{#4 - #2}
+    \pgfmathsetmacro{\r}{atan2(\ry,\rx)}
+
+    \draw[line width=1mm, color=gray, line cap=round]
+        let
+            \p1 = ($(P2)-(P1)$),
+            \n1 = {atan2(\y1,\x1)},
+            \n2 = {veclen(\x1,\y1)},
+        in
+            [rotate=\n1]
+            ($(P1)!0!(P2)$) -- ++(\n2,0);
+
+    \begin{scope}[shift={($(P1)!0.5!(P2)$)}, rotate=\r]
+        \draw[fill=orange!30, draw=black, line width=0.1mm] circle (1);
+
+        \draw[line width=0.2mm, draw=black] (0,-0.4) arc (180:360:0.75mm);
+        \draw[line width=0.2mm, draw=black] (0.0,0.4) arc (0:180:0.75mm);
+        \draw[line width=0.2mm, draw=black] (0.6,0.4) arc (0:180:0.75mm);
+        \draw[line width=0.2mm, draw=black] (-0.6,-0.4) arc (180:360:0.75mm);
+
+        \draw[line width=0.2mm, color=black] (-0.6,0.4) -- (-0.6,-0.4);
+        \draw[line width=0.2mm, color=black] (-0.3,0.4) -- (-0.3,-0.4);
+        \draw[line width=0.2mm, color=black] (0,0.4) -- (0,-0.4);
+        \draw[line width=0.2mm, color=black] (0.3,0.4) -- (0.3,-0.4);
+        \draw[line width=0.2mm, color=black] (0.6,0.4) -- (0.6,-0.4);
+    \end{scope}
+}
